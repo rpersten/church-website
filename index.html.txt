@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Свет детям — помощь детям-сиротам в Украине</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f9fc; color:#333; }
+  header { background:#4a90e2; color:#fff; padding: 20px; text-align:center; }
+  header h1 { margin:0; font-size:2.4em; }
+  nav { margin-top:10px; }
+  nav a { color:#fff; margin: 0 10px; text-decoration:none; font-weight:bold; }
+  section { padding: 40px 20px; max-width: 900px; margin: auto; }
+  h2 { color:#4a90e2; margin-bottom: 20px; }
+  .cards { display: flex; flex-wrap: wrap; gap:20px; }
+  .card { background:#fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex:1 1 250px; padding: 20px; border-radius: 8px; }
+  .card img { max-width:100%; border-radius: 8px; margin-bottom:15px; }
+  footer { background:#eee; text-align:center; padding: 20px; margin-top: 40px; font-size: 0.9em; color:#666; }
+  button { background:#4a90e2; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; font-weight:bold; }
+  button:hover { background:#357abd; }
+  form { display:flex; flex-direction: column; max-width: 400px; margin: auto; }
+  input, textarea { margin-bottom: 15px; padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+  textarea { resize: vertical; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Свет детям</h1>
+  <nav>
+    <a href="#about">О нас</a>
+    <a href="#work">Наши дела</a>
+    <a href="#help">Как помочь</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>О нас</h2>
+  <p>Мы — христианская миссия, которая помогает детям-сиротам и детям, оказавшимся в трудных жизненных ситуациях в Украине. Наша цель — дарить надежду, любовь и поддержку тем, кто в этом особенно нуждается.</p>
+  <p>Мы проводим занятия, раздаём гуманитарную помощь и организуем праздники, чтобы дети чувствовали заботу и внимание.</p>
+</section>
+
+<section id="work">
+  <h2>Наши дела</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Занятия для детей" />
+      <h3>Занятия для детей</h3>
+      <p>Образовательные и развивающие кружки для детей из сложных семей и сирот.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Гуманитарная помощь" />
+      <h3>Гуманитарная помощь</h3>
+      <p>Раздача одежды, еды и школьных принадлежностей тем, кто в этом нуждается.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Праздники и лагеря" />
+      <h3>Праздники и лагеря</h3>
+      <p>Организация радостных мероприятий, игр и выездных лагерей для детей.</p>
+    </div>
+  </div>
+</section>
+
+<section id="help">
+  <h2>Как помочь</h2>
+  <ul>
+    <li><strong>Волонтёрство:</strong> Присоединяйтесь к нашей команде, чтобы вместе делать мир лучше.</li>
+    <li><strong>Пожертвования:</strong> Любая помощь в финансах поддержит нашу миссию.</li>
+    <li><strong>Молитва:</strong> Молитесь за детей, за семьи и за наше общее дело.</li>
+  </ul>
+  <button onclick="alert('Спасибо за желание помочь! Свяжитесь с нами через форму ниже.')">Хочу помочь</button>
+</section>
+
+<section id="contacts">
+  <h2>Контакты</h2>
+  <form onsubmit="alert('Спасибо за сообщение! Мы свяжемся с вами.'); return false;">
+    <input type="text" placeholder="Ваше имя" required />
+    <input type="email" placeholder="Email" required />
+    <textarea placeholder="Сообщение" rows="4" required></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+  <p style="text-align:center; margin-top: 20px;">
+    Email: svetdetyam@example.com<br />
+    Instagram: <a href="#" target="_blank">@svetdetyam</a><br />
+    Facebook: <a href="#" target="_blank">facebook.com/svetdetyam</a>
+  </p>
+</section>
+
+<footer>
+  © 2025 Миссия «Свет детям». Все права защищены.
+</footer>
+
+</body>
+</html>
