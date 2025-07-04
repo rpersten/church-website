@@ -1,94 +1,459 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Свет детям — помощь детям-сиротам в Украине</title>
-<style>
-  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f9fc; color:#333; }
-  header { background:#4a90e2; color:#fff; padding: 20px; text-align:center; }
-  header h1 { margin:0; font-size:2.4em; }
-  nav { margin-top:10px; }
-  nav a { color:#fff; margin: 0 10px; text-decoration:none; font-weight:bold; }
-  section { padding: 40px 20px; max-width: 900px; margin: auto; }
-  h2 { color:#4a90e2; margin-bottom: 20px; }
-  .cards { display: flex; flex-wrap: wrap; gap:20px; }
-  .card { background:#fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex:1 1 250px; padding: 20px; border-radius: 8px; }
-  .card img { max-width:100%; border-radius: 8px; margin-bottom:15px; }
-  footer { background:#eee; text-align:center; padding: 20px; margin-top: 40px; font-size: 0.9em; color:#666; }
-  button { background:#4a90e2; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; font-weight:bold; }
-  button:hover { background:#357abd; }
-  form { display:flex; flex-direction: column; max-width: 400px; margin: auto; }
-  input, textarea { margin-bottom: 15px; padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
-  textarea { resize: vertical; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Церковь Надежды – Помощь детям</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+      color: #002147;
+    }
+
+    nav {
+      background-color: #004080;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #aad4ff;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,50,0.5), rgba(0,0,50,0.5)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    }
+
+    section {
+      max-width: 960px;
+      margin: 50px auto;
+      padding: 0 20px;
+      color: #002147;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #004080;
+      padding-bottom: 8px;
+    }
+
+    section p, section ul {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .donate-button {
+      display: inline-block;
+      background-color: #0066cc;
+      color: white;
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .donate-button:hover {
+      background-color: #004d99;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    /* Форма обратной связи */
+    form {
+      max-width: 600px;
+      margin: 0 auto 50px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input, form textarea {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    form button {
+      width: fit-content;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      align-self: center;
+    }
+
+    form button:hover {
+      background-color: #004d99;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav {
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin: 10px 15px;
+      }
+    }
+     .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #0078d7;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Свет детям</h1>
-  <nav>
-    <a href="#about">О нас</a>
-    <a href="#work">Наши дела</a>
-    <a href="#help">Как помочь</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
-</header>
+<nav>
+  <a href="#about">О нас</a>
+  <a href="#projects">Как мы помогаем</a>
+  <a href="#gallery">Фотогалерея</a>
+  <a href="#contact">Контакты</a>
+</nav>
 
+<header>
+  <h1>Церковь Надежды</h1>
+  <p>С любовью к каждому ребёнку и к каждому сердцу</p>
+</header>
 <section id="about">
-  <h2>О нас</h2>
-  <p>Мы — христианская миссия, которая помогает детям-сиротам и детям, оказавшимся в трудных жизненных ситуациях в Украине. Наша цель — дарить надежду, любовь и поддержку тем, кто в этом особенно нуждается.</p>
-  <p>Мы проводим занятия, раздаём гуманитарную помощь и организуем праздники, чтобы дети чувствовали заботу и внимание.</p>
+  <h2>Добро пожаловать</h2>
+  <p>Мы — церковь, которая заботится о детях, нуждающихся в любви, внимании и поддержке. Мы верим, что даже простое доброе дело может изменить судьбу.</p>
+</section>
+<section id="projects">
+  <h2>Как мы помогаем детям</h2>
+  <ul>
+    <li>Организуем летние лагеря и христианские мероприятия</li>
+    <li>Поддерживаем сирот и детей, пострадавших от войны</li>
+    <li>Раздаём одежду, еду и средства гигиены</li>
+    <li>Проводим образовательные занятия и оказываем помощь с учебой</li>
+  </ul>
+  <button class="donate-button" onclick="alert('Функция пожертвования скоро будет доступна!')">ПОЖЕРТВОВАТЬ</button>
 </section>
 
-<section id="work">
-  <h2>Наши дела</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Занятия для детей" />
-      <h3>Занятия для детей</h3>
-      <p>Образовательные и развивающие кружки для детей из сложных семей и сирот.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Гуманитарная помощь" />
-      <h3>Гуманитарная помощь</h3>
-      <p>Раздача одежды, еды и школьных принадлежностей тем, кто в этом нуждается.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Праздники и лагеря" />
-      <h3>Праздники и лагеря</h3>
-      <p>Организация радостных мероприятий, игр и выездных лагерей для детей.</p>
-    </div>
+</body>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+    margin-top: 15px;
+  }
+  .gallery-item {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  /* Лайтбокс */
+  #lightbox {
+    position: fixed;
+    top: 0; left: 0; right:0; bottom:0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  #lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px black;
+  }
+  #close-lightbox {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10001;
+  }
+  #lightbox-caption {
+    color: white;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  /* Кнопки навигации */
+  #prev-btn, #next-btn {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 15px;
+    transform: translateY(-50%);
+    z-index: 10001;
+    transition: color 0.3s;
+  }
+  #prev-btn {
+    left: 250px;
+    width: 100px;
+  }
+  #next-btn {
+    right: 250px;
+    width: 100px;
+  }
+</style>
+<section id="gallery">
+  <h2>Дети в церкви</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80" alt="Дети играют" class="gallery-item" />
+    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" alt="Дети в лесу, играют и веселятся" class="gallery-item" />
+    <img src="https://images.unsplash.com/photo-1518725522904-4b3939358342?auto=format&fit=crop&w=400&q=80" alt="Веселые дети в лесу на природе" class="gallery-item" />
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Церковная группа, дети и взрослые" class="gallery-item" />
+    
+    <!-- Добавляем ряд с реками и водой -->
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Река среди гор" class="gallery-item" />
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Дети играют возле воды" class="gallery-item" />
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Веселые дети у реки" class="gallery-item" />
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Дети играют у воды" class="gallery-item" />
+
+  </div>
+
+  <!-- Лайтбокс -->
+  <div id="lightbox" style="display:none;">
+    <span id="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="" />
+    <div id="lightbox-caption"></div>
+    <button id="prev-btn" aria-label="Предыдущее изображение">&#10094;</button>
+    <button id="next-btn" aria-label="Следующее изображение">&#10095;</button>
   </div>
 </section>
 
-<section id="help">
-  <h2>Как помочь</h2>
-  <ul>
-    <li><strong>Волонтёрство:</strong> Присоединяйтесь к нашей команде, чтобы вместе делать мир лучше.</li>
-    <li><strong>Пожертвования:</strong> Любая помощь в финансах поддержит нашу миссию.</li>
-    <li><strong>Молитва:</strong> Молитесь за детей, за семьи и за наше общее дело.</li>
-  </ul>
-  <button onclick="alert('Спасибо за желание помочь! Свяжитесь с нами через форму ниже.')">Хочу помочь</button>
-</section>
+<script>
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('close-lightbox');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
 
-<section id="contacts">
-  <h2>Контакты</h2>
-  <form onsubmit="alert('Спасибо за сообщение! Мы свяжемся с вами.'); return false;">
-    <input type="text" placeholder="Ваше имя" required />
-    <input type="email" placeholder="Email" required />
-    <textarea placeholder="Сообщение" rows="4" required></textarea>
+  let currentIndex = 0;
+
+  function showImage(index) {
+    const item = galleryItems[index];
+    lightbox.style.display = 'flex';
+    lightboxImg.src = item.src.replace('w=400', 'w=1200');
+    lightboxImg.alt = item.alt;
+    lightboxCaption.textContent = item.alt;
+    currentIndex = index;
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => showImage(index));
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+    lightboxCaption.textContent = '';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+      lightboxCaption.textContent = '';
+    }
+  });
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    showImage(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1 + galleryItems.length) % galleryItems.length;
+    showImage(currentIndex);
+  });
+
+  // Клавиши для навигации (стрелки и Esc)
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'Escape') {
+        closeBtn.click();
+      }
+    }
+  });
+</script>
+<section id="contact">
+<form action="https://formspree.io/f/mdkzjzgb" method="POST" class="form-container">
+    <div class="form-group">
+      <label for="name">Имя</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone" required />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Опишите ситуацию</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+
     <button type="submit">Отправить</button>
   </form>
-  <p style="text-align:center; margin-top: 20px;">
-    Email: svetdetyam@example.com<br />
-    Instagram: <a href="#" target="_blank">@svetdetyam</a><br />
-    Facebook: <a href="#" target="_blank">facebook.com/svetdetyam</a>
-  </p>
 </section>
-
 <footer>
-  © 2025 Миссия «Свет детям». Все права защищены.
+  <p>© 2025 Церковь Надежды. Все права защищены.</p>
+  <p>«Служить — значит любить»</p>
 </footer>
 
 </body>
